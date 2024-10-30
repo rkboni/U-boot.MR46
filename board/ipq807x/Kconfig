@@ -1,0 +1,59 @@
+menu "QCOM IPQ807X platforms"
+	depends on ARCH_IPQ807x
+
+config SYS_CPU
+       default "ipq807x"
+
+config SYS_BOARD
+       default "ipq807x"
+
+config SYS_VENDOR
+       default "qca/arm"
+
+config SYS_CONFIG_NAME
+       default "ipq807x"
+
+config SYS_TEXT_BASE
+	hex "Text Base"
+	default 0x4A900000
+
+config IPQ807X_EDMA
+	bool
+	default y
+
+config IPQ807X_BRIDGED_MODE
+	bool
+	default y
+
+config IPQ807x_I2C
+	bool
+	default y
+
+config SYS_I2C_QUP
+	bool
+	depends on IPQ807x_I2C
+	default y
+
+config ARMV7_PSCI_NR_CPUS
+	int
+	default 1
+
+config QCA_BAM
+	bool
+	default y
+
+config MBN_HEADER
+	bool "Converty U-Boot ELF to MBN"
+	default y
+
+config IPQ_MDIO
+	bool "IPQ MDIO"
+	default y
+
+config IPQ_NO_RELOC
+	bool
+	default n
+
+source "board/qca/arm/Kconfig"
+
+endmenu
